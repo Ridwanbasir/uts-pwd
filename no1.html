@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir Reservasi Hotel</title>
+    <style>
+        .result-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulir Reservasi Hotel</h1>
+    <form id="reservasiForm" onsubmit="showResult(event)">
+        <label for="nama">Nama:</label><br>
+        <input type="text" id="nama" name="nama"><br>
+        <label for="telepon">Nomor Telepon:</label><br>
+        <input type="tel" id="telepon" name="telepon"><br>
+        <label for="alamat">Alamat:</label><br>
+        <textarea id="alamat" name="alamat"></textarea><br>
+        <label for="checkin">Tanggal Check-in:</label><br>
+        <input type="date" id="checkin" name="checkin"><br>
+        <label for="checkout">Tanggal Check-out:</label><br>
+        <input type="date" id="checkout" name="checkout"><br>
+        <label for="kamar">Jenis Kamar:</label>
+        <select id="kamar" name="kamar">
+            <option value="single">Single</option>
+            <option value="doble">Doble</option>
+        </select><br>
+        <label for="dewasa">Jumlah Tamu Dewasa:</label><br>
+        <input type="text" id="dewasa" name="dewasa"><br>
+        <label for="anak">Jumlah Anak-anak:</label><br>
+        <input type="text" id="anak" name="anak"><br>
+        <input type="submit" value="Reservasi">
+    </form>
+    <div id="result" style="display: none;">
+        <style>
+            h2 {
+                text-align: center;
+            }
+    
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+    
+            th, td {
+                border: 1px solid #000;
+                padding: 8px;
+            }
+        </style>
+        <h2>Data Reservasi</h2>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Nomor Telepon</th>
+                <th>Alamat</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Jenis Kamar</th>
+                <th>Tamu Dewasa</th>
+                <th>Anak-anak</th>
+            </tr>
+            <tr>
+                <td><span id="resultNama"></span></td>
+                <td><span id="resultTelepon"></span></td>
+                <td><span id="resultAlamat"></span></td>
+                <td><span id="resultCheckin"></span></td>
+                <td><span id="resultCheckout"></span></td>
+                <td><span id="resultKamar"></span></td>
+                <td><span id="resultDewasa"></span></td>
+                <td><span id="resultAnak"></span></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+<script>
+    function showResult(event) {
+        event.preventDefault();
+
+        const nama = document.getElementById('nama').value;
+        const telepon = document.getElementById('telepon').value;
+        const alamat = document.getElementById('alamat').value;
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
+        const kamar = document.getElementById('kamar').value;
+        const dewasa = document.getElementById('dewasa').value;
+        const anak = document.getElementById('anak').value;
+
+        document.getElementById('resultNama').textContent = nama;
+        document.getElementById('resultTelepon').textContent = telepon;
+        document.getElementById('resultAlamat').textContent = alamat;
+        document.getElementById('resultCheckin').textContent = checkin;
+        document.getElementById('resultCheckout').textContent = checkout;
+        document.getElementById('resultKamar').textContent = kamar;
+        document.getElementById('resultDewasa').textContent = dewasa;
+        document.getElementById('resultAnak').textContent = anak;
+
+        document.getElementById('result').style.display = 'block';
+    }
+</script>
+</body>
+
+</html>
